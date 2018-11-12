@@ -1,0 +1,13 @@
+root = true
+// 针对生效的文件后缀
+[*.{js,jsx,ts,tsx,vue}]
+// 文件编码
+charset = utf-8
+// 缩进
+indent_style = tabs
+// 缩进尺寸
+indent_size = 2
+// 修复尾部后缀空格
+trim_trailing_whitespace = true
+// 保存自动换行
+insert_final_newline = true
