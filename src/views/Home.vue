@@ -17,6 +17,25 @@ export default {
   components: {
     HelloWorld
   },
+   beforeRouteEnter(to,from,next){
+      //渲染之前的钩子，这里还不能使用this关键字。想得到this关键字可以通过下面这个方法。
+       next(vm=>{
+           console.log(vm) //这个vm就是this对象
+       })
+       console.log(' beforeRouteEnter !')
+       next()
+   },
+    beforeRouteLeave(to,from,next){
+        /*console.log(' beforeRouteLeave !', this)
+        const answer = window.confirm('确认离开？')
+        answer ? next() : next(false)*/
+        next()
+  },
+    //用处是当路由携带的路径参数发生改变的时候会触发这个钩子，比如说/home/1  变成  /home/2
+    beforeRouteUpdate(to,from,next){
+
+    },
+
   methods: {
     // 定义点击方法
     handleChilk(type){
