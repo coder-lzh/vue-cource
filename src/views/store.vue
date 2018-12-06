@@ -1,15 +1,17 @@
 <template>
   <div>
       <!--子组件-->
-   <a-input  @input="handleInput"/>
+   <a-input  @out="handleInput"/>
     <br>
     {{inputValue}}<br>
-    <a-input @input="handleInput2"  ref="header"/>
-    {{inputValue}}
+      <!--兄弟组件传值-->
+      <a-show :content="inputValue"/>
+
   </div>
 </template>
 <script>
 import AInput from '_c/AInput.vue'
+import AShow from '_c/AShow.vue'
 export default {
   name: 'store',
   data () {
@@ -18,16 +20,12 @@ export default {
     }
   },
   components: {
-    AInput
+    AInput,
+      AShow
   },
     methods:{
         handleInput(val){
-            console.log(val)
             this.inputValue=val;
-        },
-        handleInput2(){
-            console.log(this.$refs.header.value)
-            this.inputValue=this.$refs.header.value;
         }
     }
 }
