@@ -9,7 +9,11 @@
       appName:{{appName2}}
       <hr/>
       {{appNameWithVersion2}}
-
+      <hr>
+      appName: {{this.$store.state.stateValue}}
+      <button @click="update">修改state的值</button>
+      <hr>
+      <input v-model="stateValue"/>  {{ stateValue }}
   </div>
 </template>
 <script>
@@ -35,10 +39,21 @@ export default {
        ...mapGetters('user',[
             'appNameWithVersion2'
         ]),
+        stateValue: {
+            get () {
+                return this.$store.state.stateValue
+            },
+            set (val) {
+                this.$store.commit('SET_STATE_VALUE',val)
+            }
+        },
     },
     methods:{
         handleInput(val){
             this.inputValue=val;
+        },
+        update(){
+            this.$store.dispatch("updateAppName")
         }
     }
 }

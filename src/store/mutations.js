@@ -10,6 +10,6 @@ const mutations = {
     },
     SET_STATE_VALUE (state, value) {
         state.stateValue = value
-    }
+    },
 }
 export default mutations
